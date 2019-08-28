@@ -21,7 +21,7 @@ public class ClassmateController {
     private ClassmateService classmateService;
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Classmate> getClassmate(@PathVariable("id") String id) {
+    public ResponseEntity<Classmate> getClassmate(@PathVariable("id") int id) {
         Classmate classmate = classmateService.getClassmate(id);
         return ResponseEntity.ok(classmate);
     }
@@ -39,19 +39,19 @@ public class ClassmateController {
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest()
                 .path("/{id}")
-                .buildAndExpand(classmate.getId())
+                .buildAndExpand(classmate.getNumber())
                 .toUri();
         return ResponseEntity.created(location).body(classmate);
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<Classmate> replaceClassmate(@PathVariable("id") String id, @RequestBody Classmate request) {
+    public ResponseEntity<Classmate> replaceClassmate(@PathVariable("id") int id, @RequestBody Classmate request) {
         Classmate classmate = classmateService.replaceClassmate(id, request);
         return ResponseEntity.ok(classmate);
     }
 
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity deleteClassmate(@PathVariable("id") String id) {
+    public ResponseEntity deleteClassmate(@PathVariable("id") int id) {
         classmateService.deleteClassmate(id);
         return ResponseEntity.noContent().build();
     }

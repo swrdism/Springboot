@@ -54,6 +54,7 @@
         <directory>src/main/java/resources</directory>
         <includes>
           <include>application.properties</include>
+          <include>schema.sql</include>
         </includes>
       </resource>
     </resources>
