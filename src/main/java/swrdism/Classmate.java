@@ -1,9 +1,15 @@
 package swrdism;
 
-import org.springframework.stereotype.Component;
 
-@Component
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Classmate {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private int number;
     private int score;

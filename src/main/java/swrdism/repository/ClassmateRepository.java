@@ -11,6 +11,6 @@ import java.util.List;
 
 
 public interface ClassmateRepository extends CrudRepository<Classmate,Integer>{
-    List<Classmate> findByNames(String name);
-    List<Classmate> findByNames(String name, Sort sort);
+//    List<Classmate> findByNames(String name);
+//    List<Classmate> findByNames(String name, Sort sort);
 }

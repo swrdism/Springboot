@@ -8,13 +8,15 @@ import swrdism.exception.NotFoundException;
 import swrdism.QueryParameter;
 import swrdism.repository.ClassmateRepository;
 
+import javax.annotation.Resource;
+import javax.transaction.Transactional;
 import java.util.List;
 
 
 @Service
 public class ClassmateService {
 
-    @Autowired
+    @Resource
     private ClassmateRepository repository;
 
     public Classmate getClassmate(int id) {
@@ -23,14 +25,10 @@ public class ClassmateService {
         //return null;
     }
 
+    @Transactional
     public Classmate createClassmate(Classmate request) {
 
-        Classmate classmate = new Classmate();
-        classmate.setName(request.getName());
-        classmate.setScore(request.getScore());
-        classmate.setNumber(request.getNumber());
-
-        return repository.save(classmate);
+        return repository.save(request);
         //return null;
     }
 
